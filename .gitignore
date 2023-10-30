@@ -1,0 +1,17 @@
+# Arquivos temporários
+.DS_Store
+Thumbs.db
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Configurações do ambiente
+.env
+
+# Outros diretórios específicos (substitua 'nome-do-diretorio' pelo nome real do diretório)
+.wwwebjs_cache/
+
+# Arquivos específicos (substitua 'nome-do-arquivo' pelo nome real do arquivo)
+nome-do-arquivo.extensao
