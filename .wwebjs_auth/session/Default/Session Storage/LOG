@@ -1,2 +1,3 @@
-2023/10/30-11:23:46.702 4fa4 Creating DB D:\smartsendbackend\.wwebjs_auth\session\Default\Session Storage since it was missing.
-2023/10/30-11:23:46.738 4fa4 Reusing MANIFEST D:\smartsendbackend\.wwebjs_auth\session\Default\Session Storage/MANIFEST-000001
+2023/11/01-00:05:10.017 7f68 Reusing MANIFEST E:\novosmartsend-back-end\smartsendbackend\.wwebjs_auth\session\Default\Session Storage/MANIFEST-000001
+2023/11/01-00:05:10.017 7f68 Recovering log #3
+2023/11/01-00:05:10.017 7f68 Reusing old log E:\novosmartsend-back-end\smartsendbackend\.wwebjs_auth\session\Default\Session Storage/000003.log 

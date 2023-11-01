@@ -1,2 +1,3 @@
-2023/10/30-11:23:48.290 11bc Creating DB D:\smartsendbackend\.wwebjs_auth\session\Default\File System\Origins since it was missing.
-2023/10/30-11:23:48.298 11bc Reusing MANIFEST D:\smartsendbackend\.wwebjs_auth\session\Default\File System\Origins/MANIFEST-000001
+2023/11/01-00:05:10.516 6dac Reusing MANIFEST E:\novosmartsend-back-end\smartsendbackend\.wwebjs_auth\session\Default\File System\Origins/MANIFEST-000001
+2023/11/01-00:05:10.516 6dac Recovering log #3
+2023/11/01-00:05:10.516 6dac Reusing old log E:\novosmartsend-back-end\smartsendbackend\.wwebjs_auth\session\Default\File System\Origins/000003.log 
