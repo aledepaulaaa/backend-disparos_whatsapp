@@ -7,7 +7,11 @@ const sharp = require('sharp');
 const app = express();
 const port = 8000;
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://smartsendfrontend.vercel.app/',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+}));
+
 app.use(express.json());
 const client = new Client({
     authStrategy: new LocalAuth(),
