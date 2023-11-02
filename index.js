@@ -5,6 +5,7 @@ const qrcode = require('qrcode');
 const sharp = require('sharp');
 
 const app = express();
+const port = 8000;
 
 app.use(cors({
     origin: [
@@ -160,5 +161,5 @@ client.on('message', (msg) => {
 client.initialize();
 
 app.listen(port, () => {
-    console.log(`Servidor está rodando online`);
+    console.log(`Servidor está rodando na porta http://localhost:${port}`);
 });
