@@ -7,16 +7,11 @@ const sharp = require('sharp');
 const app = express();
 const port = 8000;
 const corsOptions = {
-    origin: [
-        'https://smartsendfrontend.vercel.app',
-        'https://smartsendfrontend.vercel.app/',
-        'https://smartsendfrontend.vercel.app/listadecontatos',
-        'https://smartsendfrontend.vercel.app/enviarparatodos',
-        'http://localhost:3000/listadecontatos',
-        'http://localhost:3000/enviarparatodos',
-        'http://localhost:3000',
-    ],
-}
+    origin: '*',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+    optionsSuccessStatus: 204,
+};
 
 app.use(cors(corsOptions));
 app.use(express.json());
