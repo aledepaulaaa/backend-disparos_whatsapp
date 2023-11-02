@@ -8,7 +8,7 @@ const app = express();
 const port = 8000;
 
 const corsOptions = {
-    origin: 'https://smartsendfrontend.vercel.app',
+    origin: 'https://smartsendfrontend.vercel.app/',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 };
 
