@@ -4,10 +4,10 @@ const cors = require('cors');
 const qrcode = require('qrcode');
 const sharp = require('sharp');
 
+app.use(cors());
 const app = express();
 const port = 8000;
 
-app.use(cors());
 app.use(express.json());
 const client = new Client({
     authStrategy: new LocalAuth(),
@@ -39,10 +39,6 @@ app.get('/listadecontatos', async (req, res) => {
             }
         });
 
-        res.setHeader('Access-Control-Allow-Origin', '*');
-        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-        res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-        
         const contatos = await client.getChats();
         res.send(contatos);
     } catch (error) {
@@ -87,10 +83,6 @@ app.post('/enviarparatodos', async (req, res) => {
             }
         }
 
-        res.setHeader('Access-Control-Allow-Origin', '*');
-        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-        res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-
         res.status(200).send("Mensagens enviadas com sucesso");
     } catch (error) {
         console.error("Erro ao enviar para todos:", error);
@@ -123,10 +115,6 @@ app.get('/', async (req, res) => {
 
         // Processar a imagem usando o Sharp (por exemplo, redimensionar para 400x400 pixels)
         const processedImage = await sharp(qrCodeImage).resize(200, 200).toBuffer();
-
-        res.setHeader('Access-Control-Allow-Origin', '*');
-        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-        res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 
         // Enviar como JSON
         res.json({ qrCode: processedImage.toString('base64') });
