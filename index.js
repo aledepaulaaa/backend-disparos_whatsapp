@@ -6,8 +6,11 @@ const sharp = require('sharp');
 
 const app = express();
 const port = 8000;
+const corsOptions = {
+    origin: '*',
+}
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 const client = new Client({
     authStrategy: new LocalAuth(),
