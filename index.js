@@ -5,10 +5,9 @@ const qrcode = require('qrcode');
 const sharp = require('sharp');
 
 const app = express();
-const port = 8000;
 
 app.use(cors({
-    origin: 'https://smartsendfrontend.vercel.app/',
+    origin: 'https://smartsendfrontend.vercel.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }));
 
@@ -155,5 +154,5 @@ client.on('message', (msg) => {
 client.initialize();
 
 app.listen(port, () => {
-    console.log(`Servidor está rodando em http://localhost:${port}`);
+    console.log(`Servidor está rodando online`);
 });
