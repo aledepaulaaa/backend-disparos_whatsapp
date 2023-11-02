@@ -1,2 +1,3 @@
-2023/10/31-19:11:40.454 8010 Creating DB E:\novosmartsend-back-end\smartsendbackend\.wwebjs_auth\session\Default\shared_proto_db since it was missing.
-2023/10/31-19:11:40.460 8010 Reusing MANIFEST E:\novosmartsend-back-end\smartsendbackend\.wwebjs_auth\session\Default\shared_proto_db/MANIFEST-000001
+2023/11/02-07:40:37.707 3dc0 Reusing MANIFEST E:\novosmartsend-back-end\smartsendbackend\.wwebjs_auth\session\Default\shared_proto_db/MANIFEST-000001
+2023/11/02-07:40:37.707 3dc0 Recovering log #3
+2023/11/02-07:40:37.707 3dc0 Reusing old log E:\novosmartsend-back-end\smartsendbackend\.wwebjs_auth\session\Default\shared_proto_db/000003.log 

@@ -1,7 +1,8 @@
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const express = require('express');
 const cors = require('cors');
-const qrcode = require('qrcode-terminal');
+const qrcode = require('qrcode');
+const sharp = require('sharp');
 
 const app = express();
 const port = 8000;
@@ -12,7 +13,7 @@ const client = new Client({
     authStrategy: new LocalAuth(),
 });
 
-class ServerEventEmitter extends require('events') {}
+class ServerEventEmitter extends require('events') { }
 
 const serverEventEmitter = new ServerEventEmitter();
 
@@ -23,10 +24,6 @@ client.once('authenticated', () => {
     isClientReady = true;
     serverEventEmitter.emit('clientReady');
 })
-
-app.get('/', (req, res) => {
-    res.send('Servidor está rodando!');
-});
 
 app.get('/listadecontatos', async (req, res) => {
     try {
@@ -87,7 +84,6 @@ app.post('/enviarparatodos', async (req, res) => {
             }
         }
 
-        // Se você deseja enviar uma resposta de sucesso para o cliente
         res.status(200).send("Mensagens enviadas com sucesso");
     } catch (error) {
         console.error("Erro ao enviar para todos:", error);
@@ -95,9 +91,49 @@ app.post('/enviarparatodos', async (req, res) => {
     }
 });
 
+// Variável para armazenar o QR Code
+let qrCodeData
+
+app.get('/', async (req, res) => {
+    try {
+        await new Promise((resolve) => {
+            if (isClientReady) {
+                resolve();
+            } else {
+                const listener = () => {
+                    serverEventEmitter.removeListener('clientReady', listener);
+                    resolve();
+                };
+                serverEventEmitter.on('clientReady', listener);
+            }
+        });
+
+        if (!qrCodeData) {
+            throw new Error('Nenhum QR Code disponível no momento.');
+        }
+
+        const qrCodeImage = await qrcode.toBuffer(qrCodeData);
+
+        // Processar a imagem usando o Sharp (por exemplo, redimensionar para 400x400 pixels)
+        const processedImage = await sharp(qrCodeImage).resize(200, 200).toBuffer();
+
+        // Enviar como JSON
+        res.json({ qrCode: processedImage.toString('base64') });
+    } catch (error) {
+        console.error('Erro ao obter QR Code:', error);
+        res.status(500).send(error.message);
+    }
+});
+
 client.on('qr', (qrCode) => {
+    qrCodeData = qrCode;
+
     // Gerar QR code no terminal
-    qrcode.generate(qrCode, { small: true });
+    console.log(qrCode);
+    serverEventEmitter.emit('clientReady');
+    console.log('QR Code gerado com sucesso!');
+    // Enviar QR code para o cliente
+    console.log('QR Code enviado para o cliente!');
 });
 
 client.on('ready', () => {
