@@ -4,10 +4,10 @@ const cors = require('cors');
 const qrcode = require('qrcode');
 const sharp = require('sharp');
 
-app.use(cors());
 const app = express();
 const port = 8000;
 
+app.use(cors());
 app.use(express.json());
 const client = new Client({
     authStrategy: new LocalAuth(),
