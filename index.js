@@ -6,11 +6,10 @@ const sharp = require('sharp');
 
 const app = express();
 const port = 8000;
+
 const corsOptions = {
     origin: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-    optionsSuccessStatus: 204,
 };
 
 app.use(cors(corsOptions));
@@ -20,7 +19,6 @@ const client = new Client({
 });
 
 class ServerEventEmitter extends require('events') { }
-
 const serverEventEmitter = new ServerEventEmitter();
 
 let isClientReady = false;
@@ -29,7 +27,7 @@ client.once('authenticated', () => {
     console.log('Autenticado com sucesso!');
     isClientReady = true;
     serverEventEmitter.emit('clientReady');
-})
+});
 
 app.get('/listadecontatos', async (req, res) => {
     try {
