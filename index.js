@@ -6,17 +6,17 @@ const sharp = require('sharp');
 
 const app = express();
 const port = 8000;
-
-app.use(cors({
+const corsOptions = {
     origin: [
     'https://smartsendfrontend.vercel.app',
-    'https://smartsendfrontend.vercel.app/',
     'https://smartsendfrontend.vercel.app/listadecontatos',
     'https://smartsendfrontend.vercel.app/enviarparatodos',
     '*',
 ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-}));
+}
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 const client = new Client({
@@ -161,5 +161,5 @@ client.on('message', (msg) => {
 client.initialize();
 
 app.listen(port, () => {
-    console.log(`Servidor está rodando na porta http://localhost:${port}`);
+    console.log(`Servidor está rodando em http://localhost:${port}`);
 });
