@@ -1,0 +1,6 @@
+[1108/101924.749:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'ambient-light-sensor'.", source:  (0)
+[1108/101924.749:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'bluetooth'.", source:  (0)
+[1108/101924.757:WARNING:backend_impl.cc(1826)] Destroying invalid entry.
+[1108/101924.759:WARNING:backend_impl.cc(1826)] Destroying invalid entry.
+[1108/101924.759:WARNING:backend_impl.cc(1826)] Destroying invalid entry.
+[1108/102440.582:INFO:CONSOLE(266)] "Failed to parse video contentType: video/mp4; codecs=hev1.1.6.L93.B0", source: https://web.whatsapp.com/app.34291d86bcae2ecb16f6.js (266)
