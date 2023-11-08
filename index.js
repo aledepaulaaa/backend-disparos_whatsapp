@@ -159,7 +159,7 @@ client.on('message', (msg) => {
 });
 
 client.initialize();
-
+// Iniciar o servidor
 app.listen(port, () => {
     console.log(`Servidor está rodando em http://localhost:${port}`);
 });
