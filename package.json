@@ -1,5 +1,5 @@
 {
-  "name": "smartsendbackend",
+  "name": "validacao_whatsapp",
   "version": "1.0.0",
   "description": "Servidor de disparo de mensagens que usa a API do WhatsApp Web.",
   "main": "index.js",
